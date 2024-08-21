@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Attribute, Component } from '@angular/core';
 
 @Component({
   selector: 'app-tab1',
@@ -6,26 +6,35 @@ import { Component } from '@angular/core';
   styleUrls: ['tab1.page.scss']
 })
 export class Tab1Page {
-  public alertButtons = ["Confirm"];
+  public alertButtons = ["Confirmar"];
   public alertInputs = [
     {
-      placeholder: 'Name',
+      placeholder: 'Nombre',
     },
     {
-      placeholder: 'Username (max 8 characters)',
+      placeholder: 'Apellido'
+    },
+    {
+      placeholder: 'Usuario (max 8 caracteres)',
       attributes: {
-        maxlength: 8,
+        maxlength: 10,
       },
+    },   {
+      placeholder: 'Password',
+      type:'password',
+      atributtes:{
+        minLength: 8
+      }
     },
     {
       type: 'number',
-      placeholder: 'Age',
+      placeholder: 'Edad',
       min: 1,
       max: 100,
     },
     {
-      type: 'textarea',
-      placeholder: 'A little about yourself',
+      placeholder: 'Email',
+      type: 'email',
     },
   ];
 
