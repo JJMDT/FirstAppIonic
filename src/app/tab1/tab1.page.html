@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Tab 1
+      My Person
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -12,6 +12,15 @@
       <ion-title size="large">Tab 1</ion-title>
     </ion-toolbar>
   </ion-header>
+  <!-- pasamos la variable name a el componente  -->
+  <app-explore-container name="Section person perform"></app-explore-container>
 
-  <app-explore-container name="Tab 1 page"></app-explore-container>
-</ion-content>
+
+  <ion-fab id="present-alert" vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button>
+      <ion-icon name="add">
+        <ion-alert trigger="present-alert" header="Please enter your info" [buttons]="alertButtons"
+          [inputs]="alertInputs"></ion-alert>
+      </ion-icon>
+    </ion-fab-button>
+  </ion-fab>

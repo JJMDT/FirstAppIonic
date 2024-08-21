@@ -6,7 +6,34 @@ import { Component } from '@angular/core';
   styleUrls: ['tab1.page.scss']
 })
 export class Tab1Page {
+  public alertButtons = ["Confirm"];
+  public alertInputs = [
+    {
+      placeholder: 'Name',
+    },
+    {
+      placeholder: 'Username (max 8 characters)',
+      attributes: {
+        maxlength: 8,
+      },
+    },
+    {
+      type: 'number',
+      placeholder: 'Age',
+      min: 1,
+      max: 100,
+    },
+    {
+      type: 'textarea',
+      placeholder: 'A little about yourself',
+    },
+  ];
 
   constructor() {}
+
+  MostrarConsola(){
+    this.alertButtons = ['Action'];
+    console.log("hola fitness")
+  }
 
 }
