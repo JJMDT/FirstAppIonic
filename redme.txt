@@ -1,1 +1,2 @@
+entregar todos los archivos y la carpeta sourse nada mas ! 
 para iniciar el proyecto usar el comando "ionic serve"

@@ -1,4 +1,6 @@
 import { Attribute, Component } from '@angular/core';
+import { ProveedorService } from '../proveedor.service';
+
 
 @Component({
   selector: 'app-tab1',
@@ -6,6 +8,9 @@ import { Attribute, Component } from '@angular/core';
   styleUrls: ['tab1.page.scss']
 })
 export class Tab1Page {
+  usuarios: any;
+
+
   public alertButtons = ["Confirmar"];
   public alertInputs = [
     {
@@ -38,11 +43,24 @@ export class Tab1Page {
     },
   ];
 
-  constructor() {}
+  constructor(
+    public proveedor: ProveedorService
+
+  ) {}
 
   MostrarConsola(){
     this.alertButtons = ['Action'];
     console.log("hola fitness")
   }
-
+  ngOnInit(){
+    this.LlamarApi()
+  }
+  
+  LlamarApi(){
+    this.proveedor.ObtenerDatos()
+    .subscribe(
+      (data) => (this.usuarios= data),
+      (data) => (console.log(data))
+    )
+}
 }

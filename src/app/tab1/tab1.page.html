@@ -1,26 +1,68 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Register
+      Users
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
+<ion-content [fullscreen]="true" class="tab1">
   <ion-header collapse="condense">
     <ion-toolbar>
       <ion-title size="large">Tab 1</ion-title>
     </ion-toolbar>
   </ion-header>
   <!-- pasamos la variable name a el componente  -->
-  <app-explore-container name="Section Perfil"></app-explore-container>
+  <ion-content>
+    <h2>Lista de usuarios</h2>
+    <ion-list>
+      <ion-item *ngFor="let usuario of usuarios">
+        <ion-label>
+          <p>ID : {{ usuario.id }} </p>
+          <p>Name: {{usuario.name}}</p>
+          <p>User: {{usuario.username}}</p>
+          <p>Email: {{usuario.email}}</p>
+          <p>Address: {{usuario.address.street}} -  {{usuario.address.suite}} - {{usuario.address.city}} - CODE: {{usuario.address.zipcode}}</p>
+          <p>Phone: {{usuario.phone}}</p>
+          <p>Email: {{usuario.email}}</p>
+          <p>Web: {{usuario.website}}</p>
+          <br>
+          <h2>Datos de la Empresa</h2>
+          <p>Company: {{usuario.company.name}}</p>
+          <p>Catch Phrase: {{usuario.company.catchPhrase}}</p>
+          <p>Bs: {{usuario.company.bs}}</p>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+    <!-- "email": "Sincere@april.biz",
+    "address": {
+      "street": "Kulas Light",
+      "suite": "Apt. 556",
+      "city": "Gwenborough",
+      "zipcode": "92998-3874",
+      "geo": {
+        "lat": "-37.3159",
+        "lng": "81.1496"
+      }
+    },
+    "phone": "1-770-736-8031 x56442",
+    "website": "hildegard.org",
+    "company": {
+      "name": "Romaguera-Crona",
+      "catchPhrase": "Multi-layered client-server neural-net",
+      "bs": "harness real-time e-markets" -->
 
+  </ion-content>
 
+  
+  
   <ion-fab id="present-alert" vertical="bottom" horizontal="end" slot="fixed">
     <ion-fab-button>
       <ion-icon name="add">
         <ion-alert trigger="present-alert" header="Please enter your info" [buttons]="alertButtons"
-          [inputs]="alertInputs"></ion-alert>
+        [inputs]="alertInputs"></ion-alert>
       </ion-icon>
     </ion-fab-button>
+
+
   </ion-fab>
