@@ -1,5 +1,7 @@
 import { Attribute, Component } from '@angular/core';
 import { ProveedorService } from '../proveedor.service';
+import { AlertButton, AlertController } from '@ionic/angular';
+
 
 
 @Component({
@@ -9,7 +11,6 @@ import { ProveedorService } from '../proveedor.service';
 })
 export class Tab1Page {
   usuarios: any;
-
 
   public alertButtons = ["Confirmar"];
   public alertInputs = [
@@ -32,35 +33,49 @@ export class Tab1Page {
       }
     },
     {
-      type: 'number',
-      placeholder: 'Edad',
-      min: 1,
-      max: 100,
-    },
-    {
       placeholder: 'Email',
       type: 'email',
     },
+    {
+      placeholder: 'Calle',
+    },  
+    {
+      placeholder: 'Numero',
+      type:'number'
+    }, 
+    {
+      placeholder: 'Localidad',
+    },   {
+      placeholder: 'Codigo postal',
+    }, {
+      placeholder: 'Telefono',
+      type:'number'
+    }, 
   ];
 
   constructor(
-    public proveedor: ProveedorService
+    public proveedor: ProveedorService,
+
 
   ) {}
+  ViewUsers(){
+  // esta funcion llama a la funcion LlamarApi y se ejecuta
+     this.LlamarApi();
+    }
+    
+    
 
-  MostrarConsola(){
-    this.alertButtons = ['Action'];
-    console.log("hola fitness")
-  }
-  ngOnInit(){
-    this.LlamarApi()
-  }
-  
   LlamarApi(){
+    // funcion llamar api accede a provedorService y ejecuta el constructor httpClient que tiene la funcion obtenerDAtos()
     this.proveedor.ObtenerDatos()
-    .subscribe(
-      (data) => (this.usuarios= data),
-      (data) => (console.log(data))
-    )
+      .subscribe(
+        (data) => {
+          this.usuarios = data; 
+          console.log('Info de usuarios:', this.usuarios);
+        },
+        (error) => {
+          console.error('Error al obtener los datos', error);
+        }
+      );
 }
 }

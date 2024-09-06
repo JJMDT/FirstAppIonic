@@ -15,6 +15,10 @@
   <!-- pasamos la variable name a el componente  -->
   <ion-content>
     <h2>Lista de usuarios</h2>
+    <!-- boton ver usuarios, la funcion nos muestra la lista  -->
+    <ion-button (click)="ViewUsers()" >Ver usuarios</ion-button>
+    
+    <!-- iteramos el array de usuarios para mostrar la informacion  -->
     <ion-list>
       <ion-item *ngFor="let usuario of usuarios">
         <ion-label>
@@ -24,39 +28,20 @@
           <p>Email: {{usuario.email}}</p>
           <p>Address: {{usuario.address.street}} -  {{usuario.address.suite}} - {{usuario.address.city}} - CODE: {{usuario.address.zipcode}}</p>
           <p>Phone: {{usuario.phone}}</p>
-          <p>Email: {{usuario.email}}</p>
           <p>Web: {{usuario.website}}</p>
           <br>
-          <h2>Datos de la Empresa</h2>
+          <h2>Company</h2>
           <p>Company: {{usuario.company.name}}</p>
           <p>Catch Phrase: {{usuario.company.catchPhrase}}</p>
           <p>Bs: {{usuario.company.bs}}</p>
         </ion-label>
       </ion-item>
     </ion-list>
-    <!-- "email": "Sincere@april.biz",
-    "address": {
-      "street": "Kulas Light",
-      "suite": "Apt. 556",
-      "city": "Gwenborough",
-      "zipcode": "92998-3874",
-      "geo": {
-        "lat": "-37.3159",
-        "lng": "81.1496"
-      }
-    },
-    "phone": "1-770-736-8031 x56442",
-    "website": "hildegard.org",
-    "company": {
-      "name": "Romaguera-Crona",
-      "catchPhrase": "Multi-layered client-server neural-net",
-      "bs": "harness real-time e-markets" -->
+    
 
   </ion-content>
 
-  
-  
-  <ion-fab id="present-alert" vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab id="present-alert" vertical="bottom" horizontal="end" slot="fixed">
     <ion-fab-button>
       <ion-icon name="add">
         <ion-alert trigger="present-alert" header="Please enter your info" [buttons]="alertButtons"
@@ -66,3 +51,5 @@
 
 
   </ion-fab>
+  
+  </ion-content>
