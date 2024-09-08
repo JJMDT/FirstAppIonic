@@ -13,13 +13,13 @@
     </ion-toolbar>
   </ion-header>
   <!-- pasamos la variable name a el componente  -->
-  <ion-content>
-    <h2>Lista de usuarios</h2>
+  <ion-content class="container">
+    <h2 class="title">Lista de usuarios</h2>
     <!-- boton ver usuarios, la funcion nos muestra la lista  -->
     <ion-button (click)="ViewUsers()" >Ver usuarios</ion-button>
     
     <!-- iteramos el array de usuarios para mostrar la informacion  -->
-    <ion-list>
+    <ion-list class="lista">
       <ion-item *ngFor="let usuario of usuarios">
         <ion-label>
           <p>ID : {{ usuario.id }} </p>
@@ -34,11 +34,16 @@
           <p>Company: {{usuario.company.name}}</p>
           <p>Catch Phrase: {{usuario.company.catchPhrase}}</p>
           <p>Bs: {{usuario.company.bs}}</p>
+          <a href="">Ver Album</a>
         </ion-label>
       </ion-item>
     </ion-list>
     
-
+   
+    <ion-content *ngIf="error">
+      <h2 class="errorTitle">Error</h2>
+      <p class="error">{{error}}</p>
+    </ion-content>
   </ion-content>
 
     <ion-fab id="present-alert" vertical="bottom" horizontal="end" slot="fixed">

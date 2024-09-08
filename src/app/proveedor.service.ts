@@ -17,6 +17,8 @@ export class ProveedorService {
    // Estamos llamando a la variable de clase httpClient que creamos en el constructor la cual importamos de angular
    // hacemos un get a la api
    ObtenerDatos(){
-    return this.httpClient.get('https://jsonplaceholder.typicode.com/users');
+   return this.httpClient.get('https://jsonplaceholder.typicode.com/users');
+    // forzando el error, poniendo una web que no exista  ↓ 
+    //return this.httpClient.get('https://jsonplaceholder.typicode.com/usersss');
   }
 }

@@ -11,6 +11,7 @@ import { AlertButton, AlertController } from '@ionic/angular';
 })
 export class Tab1Page {
   usuarios: any;
+  error:any;
 
   public alertButtons = ["Confirmar"];
   public alertInputs = [
@@ -70,11 +71,10 @@ export class Tab1Page {
     this.proveedor.ObtenerDatos()
       .subscribe(
         (data) => {
-          this.usuarios = data; 
-          console.log('Info de usuarios:', this.usuarios);
+          this.usuarios = data; console.log(data)
         },
         (error) => {
-          console.error('Error al obtener los datos', error);
+          this.error = error.message; console.log(error)
         }
       );
 }
