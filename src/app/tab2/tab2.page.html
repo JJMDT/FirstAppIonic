@@ -5,7 +5,40 @@
     </ion-title>
   </ion-toolbar>
 </ion-header>
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Ficha del Personaje</ion-title>
+  </ion-toolbar>
+</ion-header>
 
+<ion-content *ngIf="personaje"  >
+ <div class="container">
+
+   <div class="portada">
+     <h2>{{ personaje.name }}</h2>
+     <img [src]="personaje.image.url" width="250">
+    </div>
+    <!-- Muestra aquí otros detalles del personaje -->
+    <div class="containerAtributos">
+      <h3>Atributos</h3>
+      <br>
+      <p>intelligence: {{personaje.powerstats.intelligence}}</p>
+      <p>strength: {{personaje.powerstats.strength}}</p>
+      <p>speed: {{personaje.powerstats.speed}}</p>
+      <p>durability: {{personaje.powerstats.durability}}</p>
+      <p>power: {{personaje.powerstats.power}}</p>
+    </div> 
+    <div class="containerWork">
+
+      <h3>Work</h3>
+      <p>Base: {{personaje.work.base}}</p>
+      <p>occupation: {{personaje.work.occupation}}</p>
+    </div>
+      
+    <!-- Muestra otros detalles del personaje si es necesario -->
+  </div>
+  </ion-content>
+<!-- 
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
@@ -22,5 +55,5 @@
       <ion-icon  name="add"></ion-icon>
     </ion-fab-button>
   </ion-fab>
-</ion-content>
+</ion-content> -->
 

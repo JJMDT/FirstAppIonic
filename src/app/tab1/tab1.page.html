@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Users
+      Personajes
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -14,47 +14,49 @@
   </ion-header>
   <!-- pasamos la variable name a el componente  -->
   <ion-content class="container">
-    <h2 class="title">Lista de usuarios</h2>
+    <h2 class="title">api</h2>
     <!-- boton ver usuarios, la funcion nos muestra la lista  -->
-    <ion-button (click)="ViewUsers()" >Ver usuarios</ion-button>
-    
-    <!-- iteramos el array de usuarios para mostrar la informacion  -->
-    <ion-list class="lista">
-      <ion-item *ngFor="let usuario of usuarios">
-        <ion-label>
-          <p>ID : {{ usuario.id }} </p>
-          <p>Name: {{usuario.name}}</p>
-          <p>User: {{usuario.username}}</p>
-          <p>Email: {{usuario.email}}</p>
-          <p>Address: {{usuario.address.street}} -  {{usuario.address.suite}} - {{usuario.address.city}} - CODE: {{usuario.address.zipcode}}</p>
-          <p>Phone: {{usuario.phone}}</p>
-          <p>Web: {{usuario.website}}</p>
-          <br>
-          <h2>Company</h2>
-          <p>Company: {{usuario.company.name}}</p>
-          <p>Catch Phrase: {{usuario.company.catchPhrase}}</p>
-          <p>Bs: {{usuario.company.bs}}</p>
-          <a href="">Ver Album</a>
-        </ion-label>
-      </ion-item>
-    </ion-list>
-    
-   
-    <ion-content *ngIf="error">
-      <h2 class="errorTitle">Error</h2>
-      <p class="error">{{error}}</p>
-    </ion-content>
+    <ion-item>
+      <ion-item>
+        <ion-input class="custom-input" [(ngModel)]="nombreSuperHeroe" style="display: inline-block;" 
+          placeholder="Enter name"></ion-input>
+          
+        </ion-item>
+        <ion-button (click)="ViewCharacter()">Buscar</ion-button>
+    </ion-item>
+
+    <ion-card>
+      <ion-card-header>
+        <!-- <ion-card-subtitle>Personajes</ion-card-subtitle> -->
+      </ion-card-header>
+      <ul *ngIf="personajes.length > 0" class="containers">
+        <li *ngFor="let personaje of personajes">
+          <ion-card-content class="cardContainer">
+            <ion-list>
+              <ion-item class="cardItem">
+                  <a [routerLink]="['/tabs/tab2']" (click)="verFicha(personaje)">
+                    <img [src]="personaje.image.url" > <!-- Se corrige el uso de src -->
+                  </a>
+                  <ion-label>{{personaje.name}}</ion-label>
+                </ion-item>
+
+            </ion-list>
+          </ion-card-content>
+        </li>
+      </ul>
+    </ion-card>
+
   </ion-content>
 
-    <ion-fab id="present-alert" vertical="bottom" horizontal="end" slot="fixed">
+  <ion-fab id="present-alert" vertical="bottom" horizontal="end" slot="fixed">
     <ion-fab-button>
       <ion-icon name="add">
         <ion-alert trigger="present-alert" header="Please enter your info" [buttons]="alertButtons"
-        [inputs]="alertInputs"></ion-alert>
+          [inputs]="alertInputs"></ion-alert>
       </ion-icon>
     </ion-fab-button>
 
 
   </ion-fab>
-  
-  </ion-content>
+
+</ion-content>
